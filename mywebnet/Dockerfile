@@ -7,10 +7,6 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["mywebnet/mywebnet.csproj", "mywebnet/"]
-RUN dotnet restore "mywebnet/mywebnet.csproj"
-COPY . .
-WORKDIR "/src/mywebnet"
 RUN dotnet build "mywebnet.csproj" -c Release -o /app/build
 
 FROM build AS publish
