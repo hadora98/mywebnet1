@@ -5,10 +5,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-WORKDIR /src
-COPY ["mywebnet.csproj", "mywebnet/"]
-RUN dotnet restore "mywebnet/mywebnet.csproj"
-COPY . .
+
 WORKDIR "/src/mywebnet"
 RUN dotnet build "mywebnet.csproj" -c Release -o /app/build
 
