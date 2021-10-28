@@ -6,7 +6,7 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
-WORKDIR /src
+WORKDIR /nywebnet
 RUN dotnet build "mywebnet.csproj" -c Release -o /app/build
 
 FROM build AS publish
